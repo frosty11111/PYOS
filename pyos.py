@@ -4,6 +4,11 @@ import tkinter as tk
 import sys
 import builtins
 import threading
+import editor
+
+version = "0.1.1 ALPHA TEST"
+
+sys.path.append(os.path.dirname(__file__))
 
 class TerminalWindow:
     def __init__(self, window):
@@ -78,10 +83,12 @@ def terminal_logic(app):
      print("hint: use help command to get the list of all available commands!")
      while True:
          usr_input = input(">>> ")
-         if usr_input == "timer":
+         if usr_input == "text editor":
+             editor.start_editor(root)
+         elif usr_input == "timer":
              time_input = float(input("Set time: "))
              timer(time_input)
-         if usr_input == "help":
+         elif usr_input == "help":
              print("help: prints out a page with all available commands")
              sleep(0.1)
              print("timer: sets a timer for how long you'd like (in seconds)")
@@ -93,20 +100,22 @@ def terminal_logic(app):
              print("exit: exits PYOS terminal")
              sleep(0.1)
              print("version: displays current version of PYOS")
-         if usr_input == "calc":
+         elif usr_input == "calc":
              calc()
-         if usr_input == "calculator":
+         elif usr_input == "calculator":
              calc()
-         if usr_input == "clear":
+         elif usr_input == "clear":
              print("Clearing...")
              sleep(0.3)
              app.clear_screen()
-         if usr_input == "exit":
+         elif usr_input == "exit":
              print("Exitting PYOS")
              sleep(0.2)
              os.abort() # Жесткое завершение всей программы
-         if usr_input == "version":
-             print("Current version of PYOS: 0.0.1 ALPHA TEST")
+         elif usr_input == "version":
+             print("Current version of PYOS: " + version)
+         else:
+             print('"' + usr_input + '"', "is not a command, try again")
 
 def terminal_start():
     # Создаем Toplevel (дочернее окно)
@@ -123,13 +132,17 @@ root = tk.Tk()
 root.geometry("1000x700")
 root.title("PYOS")
 root.configure(bg="teal")
+root.attributes("-fullscreen", True)
 
 print("PYOS started")
 
 taskbar = tk.Frame(root, bg="#c0c0c0", height=40, bd=2, relief="raised")
 taskbar.pack(side="bottom", fill="x")
 
-terminal_btn = tk.Button(taskbar, text="Terminal", bg="#c0c0c0", bd=2, relief="raised", width=30, command=terminal_start)
-terminal_btn.pack(side="left", padx=1, pady=1)
+terminal_btn = tk.Button(taskbar, text="Terminal", bg="#c0c0c0", bd=2, relief="raised", width=20, command=terminal_start)
+terminal_btn.pack(side="left", padx=5, pady=2)
+
+editor_btn = tk.Button(taskbar, text="Notepad", bg="#c0c0c0", bd=2, relief="raised", width=20, command=lambda: editor.start_editor(root))
+editor_btn.pack(side="left", padx=5, pady=2)
 
 root.mainloop()
