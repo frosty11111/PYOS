@@ -5,7 +5,7 @@ Version deciphering:
 the current version of PYOS is 0.1.0 ALPHA TEST
 0. -- Major updates
 1. -- Mild updates (built-in software and or gui fixes)
-1. -- Small updates (bug-fixes, patches, etc.)
+0. -- Small updates (bug-fixes, patches, etc.)
 ALPHA -- Current stage of testing
 
 Terminal usage:
