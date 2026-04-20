@@ -2,7 +2,7 @@
 PYOS is a game-like app that (tries) to imitate a normal Operating System made purely on python.
 
 Version deciphering:
-the current version of PYOS is 0.1.1 ALPHA TEST
+the current version of PYOS is 0.1.0 ALPHA TEST
 0. -- Major updates
 1. -- Mild updates (built-in software and or gui fixes)
 1. -- Small updates (bug-fixes, patches, etc.)
