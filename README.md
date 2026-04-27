@@ -10,7 +10,7 @@ ALPHA -- Current stage of testing
 
 Terminal usage:
 Terminal is a built-in app what will open when you click on "Terminal" button on the taskbar
-Currently there are 5 commands:
+Currently there are 6 commands:
 1. help -- outputs a list of all available commands
 2. calc/calculator -- opens built-in calculator (in the terminal)
 3. clear -- clears the terminal
